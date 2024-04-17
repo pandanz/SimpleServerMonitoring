@@ -6,6 +6,8 @@
 
 ![Project Maintenance][maintenance-shield]
 
+[![Build](https://github.com/pandanz/SimpleServerMonitoring/actions/workflows/build.yml/badge.svg)](https://github.com/pandanz/SimpleServerMonitoring/actions/workflows/build.yml)
+
 API endpoint to monitoring server resources without the need for node_exporter
 
 **Configurable via environment variables.**
