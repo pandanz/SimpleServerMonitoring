@@ -26,9 +26,9 @@ https://levelup.gitconnected.com/vs-code-remote-containers-with-nix-2a6f230d1e4e
 - https://elatov.github.io/2022/01/building-a-nix-package/
 
 
-[releases-shield]: https://img.shields.io/github/release/pandanz/server_monitoring.svg?style=for-the-badge
-[releases]: https://github.com/pandanz/server_monitoring/releases
-[commits-shield]: https://img.shields.io/github/commit-activity/y/pandanz/server_monitoring.svg?style=for-the-badge
-[commits]: https://github.com/pandanz/server_monitoring/commits/main
-[license-shield]: https://img.shields.io/github/license/pandanz/server_monitoring.svg?style=for-the-badge
+[releases-shield]: https://img.shields.io/github/release/pandanz/SimpleServerMonitoring.svg?style=for-the-badge
+[releases]: https://github.com/pandanz/SimpleServerMonitoring/releases
+[commits-shield]: https://img.shields.io/github/commit-activity/y/pandanz/SimpleServerMonitoring.svg?style=for-the-badge
+[commits]: https://github.com/pandanz/SimpleServerMonitoring/commits/main
+[license-shield]: https://img.shields.io/github/license/pandanz/SimpleServerMonitoring.svg?style=for-the-badge
 [maintenance-shield]: https://img.shields.io/badge/maintainer-pandanz-blue.svg?style=for-the-badge
