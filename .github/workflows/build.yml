@@ -1,0 +1,81 @@
+name: Build
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "main"
+  pull_request:
+    branches:
+      - "main"
+
+jobs:
+  go_build:
+    name: Go Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set up Go 1.x
+      uses: actions/setup-go@v5
+      with:
+        go-version: 1.22.1
+
+    - name: Check out code into the Go module directory
+      uses: actions/checkout@v4
+
+    - name: Get dependencies
+      run: go mod download
+
+    - name: Build
+      run: go build -v -o "${{ github.workspace }}/build/"
+
+    - name: Test Go Package
+      run: |
+        cd "${{ github.workspace }}/build/"
+        "./server_monitoring" &
+        output=$(curl -sL http://localhost:8080/cpu)
+        echo "$output" | jq -e 'has("name", "unique_id", "state", "attributes")' > /dev/null
+      shell: bash
+      env:
+        PORT: 8080
+
+    - name: Upload build artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-artifact
+        path: "${{ github.workspace }}/build/"
+    
+  nix_build:
+    name: Nix Build
+    runs-on: ubuntu-latest
+    needs: go_build
+    steps:
+    - name: Install Nix
+      uses: cachix/install-nix-action@v25
+      with:
+        nix_path: nixpkgs=channel:nixos-unstable
+
+    - name: Download build artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: build-artifact
+        path: "${{ github.workspace }}/build/"
+
+    - name: Build Nix Package
+      run: |
+        cd "${{ github.workspace }}/build/module"
+        chmod +x ../server_monitoring
+        nix-build -E '((import <nixpkgs> {}).callPackage (import ./default.nix) { })'
+
+    - name: Install & Run Nix Package
+      run: |
+        cd "${{ github.workspace }}/build/module"
+        nix-env -i ./result
+        server_monitoring &
+      env:
+        PORT: 8080
+
+    - name: Test Nix Package
+      run: |
+        output=$(curl -sL http://localhost:8080/cpu)
+        echo "$output" | jq -e 'has("name", "unique_id", "state", "attributes")' > /dev/null
+      shell: bash

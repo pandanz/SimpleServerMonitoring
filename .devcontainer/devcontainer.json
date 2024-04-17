@@ -1,0 +1,26 @@
+{
+	"name": "DevContainer",
+	"build": {
+        "dockerfile": "Dockerfile"
+    },
+    "containerEnv": {
+        "PROJECT_DIR": "${containerWorkspaceFolder}"
+      },
+    
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.shell.linux": "/bin/bash"
+            },
+            "extensions": [
+                "bbenoist.nix"
+            ]
+        }
+    },
+    
+    "userEnvProbe": "loginShell",
+
+    "forwardPorts": [],
+
+    "remoteUser": "vscode"
+}

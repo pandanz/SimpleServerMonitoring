@@ -1,0 +1,12 @@
+[Unit]
+Description=Simple Server Monitoring API
+After=network.target
+
+[Service]
+ExecStart=/path/to/server_monitoring
+Environment="SERVER_MONITORING_PORT=8081"
+Environment="SERVER_MONITORING_DEBUG=True"
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
