@@ -6,7 +6,7 @@ stdenv.mkDerivation rec {
 
  src = ../../build;
 
-  nativeBuildInputs = [ 
+  nativeBuildInputs = [
     unzip
     autoPatchelfHook
  ];
