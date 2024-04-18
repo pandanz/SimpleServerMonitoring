@@ -89,7 +89,7 @@ func main() {
         gin.SetMode(gin.ReleaseMode)
 		r = gin.New()
     }
-	
+
 	// Set a default port
     port := "8080"
     // Try to read the port from the environment

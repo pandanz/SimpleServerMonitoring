@@ -17,4 +17,3 @@ if shopt -q login_shell; then
   nix-env -iA nixpkgs.go
   popd
 fi
-
