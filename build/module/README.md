@@ -1,4 +1,4 @@
-## Simple Resource Monitoring 
+## Simple Resource Monitoring
 This repository contains the Nix expression for building the Resource Monitoring Service.
 
 ## default.nix

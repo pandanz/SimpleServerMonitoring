@@ -6,7 +6,7 @@
     "containerEnv": {
         "PROJECT_DIR": "${containerWorkspaceFolder}"
       },
-    
+
     "customizations": {
         "vscode": {
             "settings": {
@@ -17,7 +17,7 @@
             ]
         }
     },
-    
+
     "userEnvProbe": "loginShell",
 
     "forwardPorts": [],

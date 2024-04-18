@@ -6,7 +6,8 @@ ARG user=vscode
 
 # These dependencies are required by Nix.
 RUN apt update -y && \
-    apt -y install --no-install-recommends curl xz-utils
+    apt -y install --no-install-recommends curl xz-utils python3 python3-pip && \
+    pip install --break-system-packages pre-commit
 
 # Swap to a non-root user
 USER ${user}
