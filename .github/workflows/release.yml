@@ -38,12 +38,12 @@ jobs:
           zip -u server_monitoring.zip server_monitoring.service
 
       - name: "Upload the ZIP file to the release"
-        uses: softprops/action-gh-release@v2.0.4
+        uses: softprops/action-gh-release@v2.0.5
         with:
           files: ${{ github.workspace }}/build/server_monitoring.zip
 
       - name: "Upload the binary file to the release"
-        uses: softprops/action-gh-release@v2.0.4
+        uses: softprops/action-gh-release@v2.0.5
         with:
           files: |
             ${{ github.workspace }}/build/server_monitoring
