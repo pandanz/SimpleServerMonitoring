@@ -59,7 +59,7 @@ jobs:
     needs: go_build
     steps:
     - name: Install Nix
-      uses: cachix/install-nix-action@v26
+      uses: cachix/install-nix-action@V27
       with:
         nix_path: nixpkgs=channel:nixos-unstable
 
